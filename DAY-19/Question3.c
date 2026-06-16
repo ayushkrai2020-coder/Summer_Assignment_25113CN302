@@ -5,54 +5,28 @@
 int main()
 {
     int r1, c1;
-    printf("Enter the number of rows and columns of the first matrice:\n");
+    printf("Enter the number of rows and columns of the matrice:\n");
     scanf("%d %d", &r1, &c1);
-    int r2, c2;
-    printf("Enter the number of rows and columns of the second matrice:\n");
-    scanf("%d %d", &r2, &c2);
-    int a[r1][c1], b[r2][c2], s[r1][c2];
-    if (c1 != r2)
+    int a[r1][c1];
+    printf("Enter the elements of the matrice: \n");
+    for (int i = 0; i < r1; i++)
     {
-        printf("Matrix multiplication is not possible");
-    }
-    else
-    {
-        printf("Enter the elements of the first matrice: \n");
-        for (int i = 0; i < r1; i++)
-        {
-            for (int j = 0; j < c1; j++)
-            {
-                scanf("%d", &a[i][j]);
-            }
-        }
-        printf("Enter the elements of the second matrice: \n");
-        for (int i = 0; i < r2; i++)
-        {
-            for (int j = 0; j < c2; j++)
-            {
-                scanf("%d", &b[i][j]);
-            }
-        }
-        for (int i = 0; i < r1; i++)
-        {
-            for (int j = 0; j < c2; j++)
-            {
-                s[i][j] = 0;
-                for (int k = 0; k < c1; k++)
-                {
-                    s[i][j] += a[i][k] * b[k][j];
-                }
-            }
-        }
-        printf("The multiplication of the two matrices is: \n");
-        for (int i = 0; i < r1; i++)
-        {
-            for (int j = 0; j < c2; j++)
-            {
-                printf("%d\t", s[i][j]);
-            }
-            printf("\n");
+        for (int j = 0; j < c1; j++)
+        {   
+            printf("a[%d][%d]=",i,j);
+            scanf("%d", &a[i][j]);
         }
     }
+    printf("The transpose of the above matrix is:\n");
+    for (int i = 0; i < c1; i++)
+    {
+        for (int j = 0; j < r1; j++)
+        {
+            printf("%d\t", a[j][i]);
+            
+        }
+        printf("\n");
+    }
+
     return 0;
 }
